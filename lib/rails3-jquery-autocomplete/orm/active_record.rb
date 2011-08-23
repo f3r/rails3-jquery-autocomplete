@@ -24,7 +24,7 @@ module Rails3JQueryAutocomplete
 
         items = items.select(get_autocomplete_select_clause(model, method, options)) unless options[:full_model]
         items = items.where(get_autocomplete_where_clause(model, term, method, options)).
-            limit(limit).order(order)
+            limit(limit).order(order).group(method)
       end
 
       def get_autocomplete_select_clause(model, method, options)
